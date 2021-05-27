@@ -6,7 +6,7 @@
 /*   By: icikrikc <icikrikc@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 15:15:43 by icikrikc      #+#    #+#                 */
-/*   Updated: 2021/05/27 15:16:49 by icikrikc      ########   odam.nl         */
+/*   Updated: 2021/05/27 15:57:11 by icikrikc      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,14 @@ int	sort_min(t_stack **stack_a, t_stack **stack_b, int prev_max)
 	{
 		if((*stack_a)->num != tmp_min->num)
 			pb(stack_a, stack_b);
+		if(ft_lstsize((t_list *)(*stack_a)) == 1)
+			break;
 		else
-			(*stack_a) = (*stack_a)->next;
+			ra(stack_a);
+			// (*stack_a) = (*stack_a)->next;
 	}
-	*stack_a = tmp_min;
-	(*stack_a)->next = NULL;
+	// *stack_a = tmp_min;
+	// (*stack_a)->next = NULL;
 	// print_stacks((*stack_a), (*stack_b));
 
 	//push all in b to a, now bottom of a is the min!
