@@ -6,7 +6,7 @@
 /*   By: icikrikc <icikrikc@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/22 12:36:57 by icikrikc      #+#    #+#                 */
-/*   Updated: 2021/05/26 14:17:27 by icikrikc      ########   odam.nl         */
+/*   Updated: 2021/05/27 13:12:07 by icikrikc      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,14 @@ void	print_stacks(t_stack *stack_a, t_stack *stack_b)
 	tmp_b = stack_b;
 	int	a = ft_lstsize((t_list *)stack_a);
 	int	b = ft_lstsize((t_list *)stack_b);
-	printf("a               b\n\n");
+	printf("%s", GREEN);
+	printf("-----------------\nSTACKS: NEW ORDER\n-----------------\n");
+	printf("a               b\n");
+	printf("-               -\n");
 	while (a > 0 || b > 0)
 	{
+		if(tmp_a == NULL)
+			printf(" ");
 		if (a > 0 && tmp_a)
 		{
 			printf("%d", tmp_a->num);
@@ -99,7 +104,9 @@ void	print_stacks(t_stack *stack_a, t_stack *stack_b)
 		}
 		printf("\n");
 	}
+	printf("%s", NORMAL);
 	printf("\n\n");
+
 }
 
 int	main(int argc, char **argv)
@@ -114,21 +121,21 @@ int	main(int argc, char **argv)
 		ft_exit_basic("No argument provided\n");
 	stack_a = parse_arguments(argc, argv, stack_a);
 
-	/////////////////////////////////////////////
-	printf("\nBEFORE SORT\n-----------------\n");
-	print_stacks(stack_a, stack_b);
-	//////////////////////////////////////////////
+	// /////////////////////////////////////////////
+	// printf("%s\nBEFORE SORT%s\n", BLUE, NORMAL);
+	// print_stacks(stack_a, stack_b);
+	// //////////////////////////////////////////////
 
 	//SORT
-	printf("OPERATIONS\n-----------------\n");
+	// printf("OPERATIONS\n-----------------\n");
 	sort_stack(&stack_a, &stack_b);
-	printf("\n\n");
+	// printf("\n\n");
 	//////
 
-	//////////////////////////////////////////////
-	printf("AFTER SORT\n-----------------\n");
+	// //////////////////////////////////////////////
+	// printf("%sAFTER SORT%s\n", RED, NORMAL);
 	print_stacks(stack_a, stack_b);
-	//////////////////////////////////////////////
+	// //////////////////////////////////////////////
 
 	//free stacks
 	ft_lstfree((t_list **)&stack_a);

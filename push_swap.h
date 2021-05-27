@@ -6,7 +6,7 @@
 /*   By: icikrikc <icikrikc@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/22 13:18:34 by icikrikc      #+#    #+#                 */
-/*   Updated: 2021/05/26 11:56:46 by icikrikc      ########   odam.nl         */
+/*   Updated: 2021/05/27 15:16:14 by icikrikc      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@
 # include <stdio.h> //get rid of this because of printf?
 
 # define OPERATED 123
+
+# define GREEN "\033[38;5;2m"
+# define NORMAL "\033[38;5;255m"
+# define RED "\033[38;5;1m"
+# define BLUE "\033[38;5;4m"
+# define PURPLE "\033[0;35m"
+# define YELLOW "\033[0;33m"
 
 typedef struct		s_stack
 {
@@ -45,4 +52,9 @@ void	rrr(t_stack **stack_a, t_stack **stack_b);
 //lst funcs
 t_stack	*lst_new_node(int num);
 
+//print
+void	print_stacks(t_stack *stack_a, t_stack *stack_b);
+
+//sorts
+void	simple_sort(t_stack **stack_a, t_stack **stack_b);
 #endif

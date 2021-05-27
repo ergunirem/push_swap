@@ -6,7 +6,7 @@
 #    By: icikrikc <icikrikc@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/02/10 14:12:56 by icikrikc      #+#    #+#                  #
-#    Updated: 2021/05/26 11:45:23 by icikrikc      ########   odam.nl          #
+#    Updated: 2021/05/27 15:16:33 by icikrikc      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ BLUE = \033[38;5;4m
 SRCS	=	main.c input_check.c sort.c \
 			swap.c push.c rotate.c rev_rotate.c \
 			helper.c\
+			sort_simple.c \
 
 OBJS	= $(SRCS:.c=.o)
 
@@ -27,7 +28,7 @@ GCC		= gcc
 
 FLAGS	= -Wall -Wextra -Werror -fsanitize=address -g
 
-HEADER_FILE = cub3d.h
+HEADER_FILE = push_swap.h
 
 LIBFT_DIR = utils/libft
 

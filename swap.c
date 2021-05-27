@@ -6,7 +6,7 @@
 /*   By: icikrikc <icikrikc@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/26 11:32:41 by icikrikc      #+#    #+#                 */
-/*   Updated: 2021/05/26 11:55:54 by icikrikc      ########   odam.nl         */
+/*   Updated: 2021/05/26 14:29:03 by icikrikc      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ static	void	swap(t_stack **stack, int *check)
 		second->next = first;
 		(*stack) = second;
 	}
-
 	// tmp = (*stack)->next;
 	// last = (t_stack *)ft_lstlast((t_list *)(*stack));
 	// last->next = (*stack);
