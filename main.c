@@ -6,7 +6,7 @@
 /*   By: icikrikc <icikrikc@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/22 12:36:57 by icikrikc      #+#    #+#                 */
-/*   Updated: 2021/05/27 13:12:07 by icikrikc      ########   odam.nl         */
+/*   Updated: 2021/05/27 17:24:06 by icikrikc      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,10 +132,14 @@ int	main(int argc, char **argv)
 	// printf("\n\n");
 	//////
 
-	// //////////////////////////////////////////////
-	// printf("%sAFTER SORT%s\n", RED, NORMAL);
-	print_stacks(stack_a, stack_b);
-	// //////////////////////////////////////////////
+	if(is_sorted(stack_a))
+	{
+		// //////////////////////////////////////////////
+		printf("%sAFTER SORT%s\n", RED, NORMAL);
+		print_stacks(stack_a, stack_b);
+		// //////////////////////////////////////////////
+	}
+
 
 	//free stacks
 	ft_lstfree((t_list **)&stack_a);

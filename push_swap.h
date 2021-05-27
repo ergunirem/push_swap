@@ -6,7 +6,7 @@
 /*   By: icikrikc <icikrikc@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/22 13:18:34 by icikrikc      #+#    #+#                 */
-/*   Updated: 2021/05/27 15:16:14 by icikrikc      ########   odam.nl         */
+/*   Updated: 2021/05/27 16:51:42 by icikrikc      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,7 @@ void	print_stacks(t_stack *stack_a, t_stack *stack_b);
 
 //sorts
 void	simple_sort(t_stack **stack_a, t_stack **stack_b);
+void	bubble_sort(t_stack **stack_a, t_stack **stack_b);
+
+int		is_sorted(t_stack *s);
 #endif
