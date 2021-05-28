@@ -6,7 +6,7 @@
 /*   By: icikrikc <icikrikc@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/25 12:26:12 by icikrikc      #+#    #+#                 */
-/*   Updated: 2021/05/26 14:47:17 by icikrikc      ########   odam.nl         */
+/*   Updated: 2021/05/28 20:21:42 by icikrikc      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,15 @@ static	void	rotate(t_stack **stack)
 	t_stack	*last;
 
 	//do I need protection? and check == operated?
-	//like this: if (*stack && (*stack)->next)
-	tmp = (*stack)->next;
-	last = (t_stack *)ft_lstlast((t_list *)(*stack));
-	last->next = (*stack);
-	(*stack)->next = NULL;
-	(*stack) = tmp;
+	if (*stack && (*stack)->next)
+	{
+		tmp = (*stack)->next;
+		last = (t_stack *)ft_lstlast((t_list *)(*stack));
+		last->next = (*stack);
+		(*stack)->next = NULL;
+		(*stack) = tmp;
+	}
+
 // 	tmp = (*stack);
 // 	while (tmp)
 // 	{
