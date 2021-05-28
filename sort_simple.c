@@ -6,7 +6,7 @@
 /*   By: icikrikc <icikrikc@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 15:15:43 by icikrikc      #+#    #+#                 */
-/*   Updated: 2021/05/27 15:57:11 by icikrikc      ########   odam.nl         */
+/*   Updated: 2021/05/28 20:06:48 by icikrikc      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,51 +23,30 @@
 	So, move move all elements from B to A which will give you the list in ascending order
 */
 
-int	sort_min(t_stack **stack_a, t_stack **stack_b, int prev_max)
+int	sort_min(t_stack **stack_a, t_stack **stack_b, int prev_min)
 {
 
 	int		min;
-	t_stack	*tmp_min;
-	t_stack	*tmp;
 
-	tmp = *stack_a;
-	if((*stack_a))
-	{
-		tmp_min = (*stack_a);
-		min = (*stack_a)->num;
-		while (tmp && tmp->next)
-		{
-			if (tmp->next->num < min)
-			{
-				min = tmp->next->num;
-				tmp_min = tmp->next;
-			}
-			tmp = tmp->next;
-		}
-	}
-
+	min = ft_lstmin(stack_a)->num;
 	while((*stack_a))
 	{
-		if((*stack_a)->num != tmp_min->num)
+		if((*stack_a)->num != min)
 			pb(stack_a, stack_b);
 		if(ft_lstsize((t_list *)(*stack_a)) == 1)
 			break;
 		else
 			ra(stack_a);
-			// (*stack_a) = (*stack_a)->next;
 	}
-	// *stack_a = tmp_min;
-	// (*stack_a)->next = NULL;
-	// print_stacks((*stack_a), (*stack_b));
 
 	//push all in b to a, now bottom of a is the min!
 	while((*stack_b))
 	{
-		if((*stack_b)->num != prev_max)
+		if((*stack_b)->num != prev_min)
 			pa(stack_a, stack_b);
 		if(*(stack_b))
 		{
-			if((*stack_b)->num == prev_max)
+			if((*stack_b)->num == prev_min)
 				break ;
 		}
 	}
@@ -78,12 +57,12 @@ int	sort_min(t_stack **stack_a, t_stack **stack_b, int prev_max)
 
 void	simple_sort(t_stack **stack_a, t_stack **stack_b)
 {
-	int	prev_max;
+	int	prev_min;
 
-	prev_max = 0;
+	prev_min = 0;
 	while((*stack_a))
 	{
-		prev_max = sort_min(stack_a, stack_b, prev_max);
+		prev_min = sort_min(stack_a, stack_b, prev_min);
 		// print_stacks((*stack_a), (*stack_b));
 	}
 	while((*stack_b))
