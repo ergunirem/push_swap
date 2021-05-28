@@ -6,7 +6,7 @@
 /*   By: icikrikc <icikrikc@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 16:44:36 by icikrikc      #+#    #+#                 */
-/*   Updated: 2021/05/27 17:30:09 by icikrikc      ########   odam.nl         */
+/*   Updated: 2021/05/28 09:43:06 by icikrikc      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ int		is_sorted(t_stack *s)
 	head = s;
 	while (s && s->next)
 	{
-		if (s->next->num < s->num)
-			cut++;
+		if (s->num > s->next->num)
+			return (0);
 		s = s->next;
 	}
-	if (head->num < s->num)
-		cut++;
-	return (cut > 1 ? 0 : 1);
+	if (s->num < head->num)
+		return (0);
+	return (1);
 }
