@@ -6,7 +6,7 @@
 /*   By: icikrikc <icikrikc@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/22 13:18:34 by icikrikc      #+#    #+#                 */
-/*   Updated: 2021/05/27 16:51:42 by icikrikc      ########   odam.nl         */
+/*   Updated: 2021/05/28 21:37:31 by icikrikc      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,9 @@ void	rrb(t_stack **stack_b);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
 
 //lst funcs
-t_stack	*lst_new_node(int num);
+t_stack	*ft_lst_new_node(int num);
+t_stack	*ft_lstmax(t_stack **stack);
+t_stack	*ft_lstmin(t_stack **stack);
 
 //print
 void	print_stacks(t_stack *stack_a, t_stack *stack_b);

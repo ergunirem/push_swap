@@ -6,7 +6,7 @@
 /*   By: icikrikc <icikrikc@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/22 12:36:57 by icikrikc      #+#    #+#                 */
-/*   Updated: 2021/05/27 17:24:06 by icikrikc      ########   odam.nl         */
+/*   Updated: 2021/05/28 21:15:56 by icikrikc      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ t_stack	*parse_arguments(int argc, char **argv, t_stack *stack_a)
 			ft_lstfree((t_list **)&stack_a);
 			ft_exit_basic("");
 		}
-		new = lst_new_node(num);
+		new = ft_lst_new_node(num);
 		if (!new)
 		{
 			ft_lstfree((t_list **)&stack_a);
@@ -132,13 +132,13 @@ int	main(int argc, char **argv)
 	// printf("\n\n");
 	//////
 
-	if(is_sorted(stack_a))
-	{
-		// //////////////////////////////////////////////
-		printf("%sAFTER SORT%s\n", RED, NORMAL);
-		print_stacks(stack_a, stack_b);
-		// //////////////////////////////////////////////
-	}
+	// if(is_sorted(stack_a))
+	// {
+	// 	// //////////////////////////////////////////////
+	// 	printf("%sAFTER SORT%s\n", RED, NORMAL);
+	// 	print_stacks(stack_a, stack_b);
+	// 	// //////////////////////////////////////////////
+	// }
 
 
 	//free stacks
