@@ -6,7 +6,7 @@
 /*   By: icikrikc <icikrikc@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/25 11:37:39 by icikrikc      #+#    #+#                 */
-/*   Updated: 2021/05/29 19:59:15 by icikrikc      ########   odam.nl         */
+/*   Updated: 2021/05/31 15:27:20 by icikrikc      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	sort_three(t_stack **stack_a)
 	int	max;
 
 	max = ft_lstmax(stack_a)->num;
-	while(!is_sorted((*stack_a)))
+	while (!is_sorted((*stack_a)))
 	{
 		if ((*stack_a)->num == max)
 			ra(stack_a);
@@ -26,7 +26,7 @@ void	sort_three(t_stack **stack_a)
 	}
 }
 
-void		sort_four(t_stack **stack_a, t_stack **stack_b)
+void	sort_four(t_stack **stack_a, t_stack **stack_b)
 {
 	int	min;
 
@@ -42,6 +42,31 @@ void		sort_four(t_stack **stack_a, t_stack **stack_b)
 
 void	sort_five(t_stack **stack_a, t_stack **stack_b)
 {
+	int	min;
+
+	min = ft_lstmin(stack_a)->num;
+	while ((*stack_a))
+	{
+		if ((*stack_a)-> num == min)
+		{
+			pb(stack_a, stack_b);
+			break ;
+		}
+		ra(stack_a);
+	}
+	min = ft_lstmin(stack_a)->num;
+	while ((*stack_a))
+	{
+		if ((*stack_a)-> num == min)
+		{
+			pb(stack_a, stack_b);
+			break ;
+		}
+		ra(stack_a);
+	}
+	sort_three(stack_a);
+	pa(stack_a, stack_b);
+	pa(stack_a, stack_b);
 }
 
 void	sort_stack(t_stack **stack_a, t_stack **stack_b)
@@ -65,5 +90,3 @@ void	sort_stack(t_stack **stack_a, t_stack **stack_b)
 		simple_sort(stack_a, stack_b);
 	// print_stacks((*stack_a), (*stack_b));
 }
-
-
