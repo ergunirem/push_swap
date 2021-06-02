@@ -6,7 +6,7 @@
 #    By: icikrikc <icikrikc@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/02/10 14:12:56 by icikrikc      #+#    #+#                  #
-#    Updated: 2021/05/27 16:59:52 by icikrikc      ########   odam.nl          #
+#    Updated: 2021/06/02 15:12:17 by icikrikc      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,12 @@ RED = \033[38;5;1m
 BLUE = \033[38;5;4m
 
 SRCS	=	main.c input_check.c sort.c \
-			swap.c push.c rotate.c rev_rotate.c \
+			./operations/swap.c ./operations/push.c \
+			./operations/rotate.c ./operations/rev_rotate.c \
 			helper.c\
+			sort_quick.c sort_quick_a.c sort_quick_b.c\
 			sort_simple.c sorted.c bubble_sort.c\
+			sort_mini.c sort_midi.c shortest_path.c\
 
 OBJS	= $(SRCS:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: icikrikc <icikrikc@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/22 16:33:08 by icikrikc      #+#    #+#                 */
-/*   Updated: 2021/05/22 17:02:05 by icikrikc      ########   odam.nl         */
+/*   Updated: 2021/06/01 13:14:26 by icikrikc      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static	void	sign_check(const char *str, int	*sign, int *i)
 	}
 }
 
-int	my_atoi(const char *str)
+int	push_swap_atoi(const char *str)
 {
 	int		i;
 	long	res;
