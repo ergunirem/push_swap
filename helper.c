@@ -6,11 +6,28 @@
 /*   By: icikrikc <icikrikc@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/25 13:39:42 by icikrikc      #+#    #+#                 */
-/*   Updated: 2021/05/28 20:01:17 by icikrikc      ########   odam.nl         */
+/*   Updated: 2021/06/02 17:05:36 by icikrikc      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/*
+** Given a reference (pointer to pointer) to the head of a list
+** and and a new node, inserts it on the front of the list.
+** 1. Makes next of new node as the head and previous null.
+** 2. Changes previous head node to new node.
+** 3. Make the new as the head of the list.
+*/
+
+void	llst_add_to_front(t_stack **head, t_stack *new)
+{
+	new->next = (*head);
+	new->prev = NULL;
+	if ((*head) != NULL)
+		(*head)->prev = new;
+	(*head) = new;
+}
 
 t_stack	*ft_lst_new_node(int num)
 {
@@ -20,7 +37,9 @@ t_stack	*ft_lst_new_node(int num)
 	if (!new)
 		return (NULL);
 	new->num = num;
+	new->sorted = 0;
 	new->next = NULL;
+	new->prev = NULL;
 	return (new);
 }
 
