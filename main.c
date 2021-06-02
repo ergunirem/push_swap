@@ -6,7 +6,7 @@
 /*   By: icikrikc <icikrikc@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/22 12:36:57 by icikrikc      #+#    #+#                 */
-/*   Updated: 2021/05/29 17:26:15 by icikrikc      ########   odam.nl         */
+/*   Updated: 2021/06/02 21:25:12 by icikrikc      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,19 @@ void	check_doubles(t_list *stack_a)
 	}
 }
 
-t_stack	*parse_arguments(int argc, char **argv, t_stack *stack_a)
+t_stack	*parse_arguments(int argc, char **argv, t_all *all)
 {
 	int		i;
 	int		num;
 	t_stack	*new;
+	t_stack	*stack_a = all->stack_a;
 
-	i = 1;
-	while (i < argc)
+	all->size_a = argc - 1;
+	all->size_b = 0;
+	while (argc > 1)
 	{
-		// printf("%s\n", argv[i]);
-		num = my_atoi(argv[i]);
+		// printf("%s\n", argv[argc - 1]);
+		num = push_swap_atoi(argv[argc - 1]);
 		if (num == -1)
 		{
 			ft_lstfree((t_list **)&stack_a);
@@ -59,8 +61,8 @@ t_stack	*parse_arguments(int argc, char **argv, t_stack *stack_a)
 			ft_lstfree((t_list **)&stack_a);
 			ft_exit_basic("");
 		}
-		ft_lstadd_back((t_list **)&stack_a, (t_list *)new);
-		i++;
+		llst_add_to_front(&stack_a, new);
+		argc--;
 	}
 	// printf("SIZE: %d\n", ft_lstsize((t_list *)stack_a));
 	check_doubles((t_list *)stack_a);
@@ -74,7 +76,6 @@ t_stack	*parse_arguments(int argc, char **argv, t_stack *stack_a)
 
 void	print_stacks(t_stack *stack_a, t_stack *stack_b)
 {
-
 	t_stack	*tmp_a;
 	t_stack	*tmp_b;
 
@@ -111,15 +112,16 @@ void	print_stacks(t_stack *stack_a, t_stack *stack_b)
 
 int	main(int argc, char **argv)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
+	t_all	all;
 
 	//do I need them?
-	// stack_a = NULL;
-	// stack_b = NULL;
+	all.stack_a = NULL;
+	all.stack_b = NULL;
+	all.a_head = all.stack_a;
+	all.a_tail = all.stack_a;
 	if (argc < 2)
 		ft_exit_basic("No argument provided\n");
-	stack_a = parse_arguments(argc, argv, stack_a);
+	all.stack_a = parse_arguments(argc, argv, &all);
 
 	// /////////////////////////////////////////////
 	// printf("%s\nBEFORE SORT%s\n", BLUE, NORMAL);
@@ -127,8 +129,10 @@ int	main(int argc, char **argv)
 	// //////////////////////////////////////////////
 
 	//SORT
-	// printf("OPERATIONS\n-----------------\n");
-	sort_stack(&stack_a, &stack_b);
+	// printf("OPERATIONS\n-----------.------\n");
+	t_stack	*stack_a = all.stack_a;
+	t_stack	*stack_b = all.stack_b;
+	sort_stack(&stack_a, &stack_b, &all);
 	// printf("\n\n");
 	//////
 
@@ -136,13 +140,20 @@ int	main(int argc, char **argv)
 	// {
 	// 	// //////////////////////////////////////////////
 	// 	printf("%sAFTER SORT%s\n", RED, NORMAL);
-	// 	print_stacks(stack_a, stack_b);
+	// print_stacks(stack_a, stack_b);
 	// 	// //////////////////////////////////////////////
 	// }
 
+	//reverse_print
+	// t_stack *last = (t_stack *)ft_lstlast((t_list *)stack_a);
+	// while (last)
+	// {
+	// 	printf("%d\n", last->num);
+	// 	last = last->prev;
+	// }
 
 	//free stacks
-	ft_lstfree((t_list **)&stack_a);
+	// ft_lstfree((t_list **)&stack_a);
 	// ft_lstfree((t_list **)&stack_b);
 	return (0);
 }
