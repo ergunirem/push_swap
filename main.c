@@ -6,7 +6,7 @@
 /*   By: icikrikc <icikrikc@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/22 12:36:57 by icikrikc      #+#    #+#                 */
-/*   Updated: 2021/06/02 21:25:12 by icikrikc      ########   odam.nl         */
+/*   Updated: 2021/06/03 23:36:25 by icikrikc      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,27 +129,16 @@ int	main(int argc, char **argv)
 	// //////////////////////////////////////////////
 
 	//SORT
-	// printf("OPERATIONS\n-----------.------\n");
 	t_stack	*stack_a = all.stack_a;
 	t_stack	*stack_b = all.stack_b;
 	sort_stack(&stack_a, &stack_b, &all);
-	// printf("\n\n");
-	//////
 
-	// if(is_sorted(stack_a))
+	// if(is_sorted(stack_a) && all.size_b == 0)
 	// {
 	// 	// //////////////////////////////////////////////
-	// 	printf("%sAFTER SORT%s\n", RED, NORMAL);
-	// print_stacks(stack_a, stack_b);
+	// 	printf("%s-----------------\nAFTER SORT\n-----------------\n%s", RED, NORMAL);
+	// 	print_stacks(stack_a, stack_b);
 	// 	// //////////////////////////////////////////////
-	// }
-
-	//reverse_print
-	// t_stack *last = (t_stack *)ft_lstlast((t_list *)stack_a);
-	// while (last)
-	// {
-	// 	printf("%d\n", last->num);
-	// 	last = last->prev;
 	// }
 
 	//free stacks

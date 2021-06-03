@@ -6,7 +6,7 @@
 /*   By: icikrikc <icikrikc@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/02 13:27:09 by icikrikc      #+#    #+#                 */
-/*   Updated: 2021/06/02 20:32:11 by icikrikc      ########   odam.nl         */
+/*   Updated: 2021/06/03 22:18:03 by icikrikc      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,28 @@ int	count_step(t_stack **stack, int ref)
 
 	tmp = *stack;
 	step = 0;
-	while (tmp->num != ref)
+	// printf("COUNT STEP\n");
+	// while (tmp != NULL)
+	// {
+	// 	printf("IN\n");
+	// 	if(tmp->num == ref)
+	// 	{
+	// 		// step--;
+	// 		printf("IN-BREAK\n");
+	// 		break ;
+	// 	}
+
+	// 	printf("X\n");
+	// 	tmp = tmp->next;
+	// 	printf("X\n");
+	// 	step++;
+	// }
+		while (tmp->num != ref)
 	{
 		tmp = tmp->next;
 		step++;
 	}
+	// printf("STEP:%d\n", step);
 	return (step);
 }
 
