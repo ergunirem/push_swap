@@ -6,11 +6,16 @@
 /*   By: icikrikc <icikrikc@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/26 11:32:41 by icikrikc      #+#    #+#                 */
-/*   Updated: 2021/06/02 19:25:30 by icikrikc      ########   odam.nl         */
+/*   Updated: 2021/06/03 09:29:40 by icikrikc      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+/*
+** Swaps the first 2 elements at the top of stack a or b or both.
+** Does nothing if there is only one or no elements).
+*/
 
 static	void	swap(t_stack **head, int *check)
 {
@@ -30,7 +35,8 @@ static	void	swap(t_stack **head, int *check)
 		second->prev = NULL;
 		first->next = rest;
 		first->prev = second;
-		rest->prev = first;
+		if (rest)
+			rest->prev = first;
 		second->next = first;
 		(*head) = second;
 	}
@@ -54,12 +60,11 @@ void	sb(t_stack **head_b)
 	swap(head_b, &check);
 	if (check == 1)
 		write(1, "sb\n", 3);
-
 }
 
 void	ss(t_stack **head_a, t_stack **head_b)
 {
-	int check;
+	int	check;
 
 	check = 0;
 	swap(head_a, &check);
