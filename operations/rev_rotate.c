@@ -23,6 +23,7 @@ static	void	rev_rotate(t_stack **head)
 	last->next = NULL;
 	first->prev = NULL;
 	first->next = (*head);
+	(*head)->prev = first;
 	(*head) = first;
 }
 
