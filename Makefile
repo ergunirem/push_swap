@@ -6,7 +6,7 @@
 #    By: icikrikc <icikrikc@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/02/10 14:12:56 by icikrikc      #+#    #+#                  #
-#    Updated: 2021/06/02 15:12:17 by icikrikc      ########   odam.nl          #
+#    Updated: 2021/06/16 23:35:43 by icikrikc      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,13 +15,18 @@ NORMAL = \033[38;5;255m
 RED = \033[38;5;1m
 BLUE = \033[38;5;4m
 
-SRCS	=	main.c input_check.c sort.c \
-			./operations/swap.c ./operations/push.c \
-			./operations/rotate.c ./operations/rev_rotate.c \
-			helper.c\
-			sort_quick.c sort_quick_a.c sort_quick_b.c\
-			sort_simple.c sorted.c bubble_sort.c\
-			sort_mini.c sort_midi.c shortest_path.c\
+SRCS	=	main.c \
+			parse_args.c \
+			sort.c \
+			sort_mini.c \
+			sort_insertion.c \
+			helpers_input.c \
+			helpers_lst.c \
+			helpers_stack.c \
+			./operations/swap.c \
+			./operations/push.c \
+			./operations/rotate.c \
+			./operations/rev_rotate.c \
 
 OBJS	= $(SRCS:.c=.o)
 
@@ -62,4 +67,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY:	clean fclean re bonus
+.PHONY:	clean fclean re
