@@ -6,7 +6,7 @@
 /*   By: icikrikc <icikrikc@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/25 11:37:39 by icikrikc      #+#    #+#                 */
-/*   Updated: 2021/06/03 11:58:21 by icikrikc      ########   odam.nl         */
+/*   Updated: 2021/06/16 23:29:50 by icikrikc      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ void	sort_stack(t_stack **stack_a, t_stack **stack_b, t_all *all)
 		sort_four(stack_a, stack_b, all);
 	else if (all->size_a == 5)
 		sort_five(stack_a, stack_b, all);
-	else if (all->size_a < 20)
-		midi_sort(stack_a, stack_b, all);
 	else
-		quick_sort(stack_a, stack_b, all);
+		insertion_sort(stack_a, stack_b, all);
 }
