@@ -6,7 +6,7 @@
 /*   By: icikrikc <icikrikc@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/02 13:35:47 by icikrikc      #+#    #+#                 */
-/*   Updated: 2021/06/02 20:31:04 by icikrikc      ########   odam.nl         */
+/*   Updated: 2021/06/16 15:00:19 by icikrikc      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	sort_three(t_stack **stack_a, t_all *all)
 {
 	int	max;
 
-	max = ft_lstmax(stack_a)->num;
+	max = ft_lstmax_num(stack_a);
 	while (!is_sorted((*stack_a)))
 	{
 		if ((*stack_a)->num == max)
@@ -30,7 +30,7 @@ void	sort_four(t_stack **stack_a, t_stack **stack_b, t_all *all)
 {
 	int	min;
 
-	min = ft_lstmin(stack_a)->num;
+	min = ft_lstmin_num(stack_a);
 	while ((*stack_a)->num != min)
 	{
 		ra(stack_a, all);
@@ -44,7 +44,7 @@ void	sort_five(t_stack **stack_a, t_stack **stack_b, t_all *all)
 {
 	int	min;
 
-	min = ft_lstmin(stack_a)->num;
+	min = ft_lstmin_num(stack_a);
 	while ((*stack_a))
 	{
 		if ((*stack_a)-> num == min)
@@ -54,7 +54,7 @@ void	sort_five(t_stack **stack_a, t_stack **stack_b, t_all *all)
 		}
 		ra(stack_a, all);
 	}
-	min = ft_lstmin(stack_a)->num;
+	min = ft_lstmin_num(stack_a);
 	while ((*stack_a))
 	{
 		if ((*stack_a)-> num == min)
