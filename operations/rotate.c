@@ -6,7 +6,7 @@
 /*   By: icikrikc <icikrikc@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/25 12:26:12 by icikrikc      #+#    #+#                 */
-/*   Updated: 2021/06/02 20:28:05 by icikrikc      ########   odam.nl         */
+/*   Updated: 2021/06/16 23:37:24 by icikrikc      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static	void	rotate(t_stack **head)
 
 void	ra(t_stack **stack_a, t_all *all)
 {
-	if(all->size_a > 1)
+	if (all->size_a > 1)
 	{
 		rotate(stack_a);
 		write(1, "ra\n", 3);
@@ -37,7 +37,7 @@ void	ra(t_stack **stack_a, t_all *all)
 
 void	rb(t_stack **stack_b, t_all *all)
 {
-	if(all->size_b > 1)
+	if (all->size_b > 1)
 	{
 		rotate(stack_b);
 		write(1, "rb\n", 3);
@@ -46,7 +46,7 @@ void	rb(t_stack **stack_b, t_all *all)
 
 void	rr(t_stack **stack_a, t_stack **stack_b, t_all *all)
 {
-	if(all->size_b > 1 && all->size_a > 1)
+	if (all->size_b > 1 && all->size_a > 1)
 	{
 		rotate(stack_a);
 		rotate(stack_b);
