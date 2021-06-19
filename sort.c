@@ -6,7 +6,7 @@
 /*   By: icikrikc <icikrikc@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/25 11:37:39 by icikrikc      #+#    #+#                 */
-/*   Updated: 2021/06/16 23:29:50 by icikrikc      ########   odam.nl         */
+/*   Updated: 2021/06/19 09:59:24 by icikrikc      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@
 
 void	sort_stack(t_stack **stack_a, t_stack **stack_b, t_all *all)
 {
-	if (all->size_a == 2 && (*stack_a)->num < (*stack_a)->next->num)
+	if (is_sorted(*stack_a))
+		return ;
+	else if (all->size_a == 2 && (*stack_a)->num < (*stack_a)->next->num)
 		return ;
 	else if (all->size_a == 2 && (*stack_a)->num > (*stack_a)->next->num)
 		sa(stack_a);
@@ -28,6 +30,8 @@ void	sort_stack(t_stack **stack_a, t_stack **stack_b, t_all *all)
 		sort_four(stack_a, stack_b, all);
 	else if (all->size_a == 5)
 		sort_five(stack_a, stack_b, all);
+	else if (all->size_a <= 20)
+		sort_simple(stack_a, stack_b, all);
 	else
 		insertion_sort(stack_a, stack_b, all);
 }

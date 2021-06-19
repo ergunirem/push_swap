@@ -6,7 +6,7 @@
 /*   By: icikrikc <icikrikc@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/22 12:36:57 by icikrikc      #+#    #+#                 */
-/*   Updated: 2021/06/16 23:27:56 by icikrikc      ########   odam.nl         */
+/*   Updated: 2021/06/19 09:49:53 by icikrikc      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int	main(int argc, char **argv)
 {
 	t_all	all;
 
-	if (argc < 2)
-		ft_exit_basic("");
+	if (argc == 1)
+		return (0);
 	all.stack_a = NULL;
 	all.stack_b = NULL;
 	all.size_a = argc - 1;

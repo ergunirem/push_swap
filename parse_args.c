@@ -6,7 +6,7 @@
 /*   By: icikrikc <icikrikc@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/16 23:24:37 by icikrikc      #+#    #+#                 */
-/*   Updated: 2021/06/16 23:25:22 by icikrikc      ########   odam.nl         */
+/*   Updated: 2021/06/17 09:02:10 by icikrikc      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,6 @@ t_stack	*parse_arguments(int argc, char **argv, t_all *all)
 	while (argc > 1)
 	{
 		num = push_swap_atoi(argv[argc - 1]);
-		if (num == -1)
-		{
-			ft_lstfree((t_list **)&stack_a);
-			ft_exit_basic("");
-		}
 		new = ft_lst_new_node(num);
 		if (!new)
 		{

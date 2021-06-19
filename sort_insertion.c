@@ -6,7 +6,7 @@
 /*   By: icikrikc <icikrikc@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/15 20:18:10 by icikrikc      #+#    #+#                 */
-/*   Updated: 2021/06/16 18:08:50 by icikrikc      ########   odam.nl         */
+/*   Updated: 2021/06/17 10:12:31 by icikrikc      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /*
 ** Calculate if it's shorter to rotate or reverse rotate
-** to get correct position of stack_b, and adjust accordingly.
+** to get stack_b to correct position, and adjust accordingly.
 */
 
 static void	shortest_rotation(t_stack **stack_b, t_all *all, int pos)
@@ -60,8 +60,8 @@ static void	move_max_to_top(t_stack **stack_b, t_all *all)
 
 /*
 ** Check if number-to-be-pushed is smaller or bigger than others in stack_b.
+** If it is, immediately move max to b.
 ** If it's in between, calculate the correct position to push in stack_b.
-**
 */
 
 static void	adjust_stack_b(t_stack **stack_a, t_stack **stack_b, t_all *all)
@@ -112,25 +112,26 @@ static void	sort_each_chunk(t_stack **stack_a, t_stack **stack_b,
 }
 
 /*
-** Divide stack_a to chunks based on number of elements.
+** Divide stack_a to chunks based on the number of elements.
 ** Sort each chunk in a loop. In the end, you'll have reverse sorted b.
 ** Move everything back to stack_a.
 */
 
 void	insertion_sort(t_stack **stack_a, t_stack **stack_b, t_all *all)
 {
-	int	chunk;
-	int	tmp;
+	int	chunk_max;
+	int	how_many_chunk;
 	int	i;
 
-	chunk = 0;
+	chunk_max = 0;
 	i = 0;
-	tmp = 5;
+	how_many_chunk = 5;
 	if (all->size_a > 200)
-		tmp = 11;
-	chunk = (ft_lstmax_num(stack_a) - ft_lstmin_num(stack_a)) / tmp;
-	while (++i < tmp)
-		sort_each_chunk(stack_a, stack_b, all, chunk * i);
+		how_many_chunk = 11;
+	chunk_max = (ft_lstmax_num(stack_a) - ft_lstmin_num(stack_a))
+		/ how_many_chunk;
+	while (++i < how_many_chunk)
+		sort_each_chunk(stack_a, stack_b, all, chunk_max * i);
 	sort_each_chunk(stack_a, stack_b, all, ft_lstmax_num(stack_a) + 1);
 	while (all->size_b)
 		pa(stack_a, stack_b, all);

@@ -6,7 +6,7 @@
 #    By: icikrikc <icikrikc@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/02/10 14:12:56 by icikrikc      #+#    #+#                  #
-#    Updated: 2021/06/16 23:35:43 by icikrikc      ########   odam.nl          #
+#    Updated: 2021/06/19 09:57:02 by icikrikc      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,8 @@ SRCS	=	main.c \
 			sort.c \
 			sort_mini.c \
 			sort_insertion.c \
+			sort_simple.c \
+			sort_bubble.c \
 			helpers_input.c \
 			helpers_lst.c \
 			helpers_stack.c \
@@ -27,6 +29,7 @@ SRCS	=	main.c \
 			./operations/push.c \
 			./operations/rotate.c \
 			./operations/rev_rotate.c \
+			print_stacks.c \
 
 OBJS	= $(SRCS:.c=.o)
 

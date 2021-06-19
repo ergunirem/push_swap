@@ -6,7 +6,7 @@
 /*   By: icikrikc <icikrikc@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/22 13:18:34 by icikrikc      #+#    #+#                 */
-/*   Updated: 2021/06/16 23:35:15 by icikrikc      ########   odam.nl         */
+/*   Updated: 2021/06/19 09:57:07 by icikrikc      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@
 # include "utils/libft/libft.h"
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h> //get rid of this because of printf?
-
-# define OPERATED 123
+# include <stdio.h>
 
 typedef struct s_stack
 {
@@ -60,6 +58,8 @@ void	sort_three(t_stack **stack_a, t_all *all);
 void	sort_four(t_stack **stack_a, t_stack **stack_b, t_all *all);
 void	sort_five(t_stack **stack_a, t_stack **stack_b, t_all *all);
 void	insertion_sort(t_stack **stack_a, t_stack **stack_b, t_all *all);
+void	sort_simple(t_stack **stack_a, t_stack **stack_b, t_all *all);
+void	bubble_sort(t_stack **stack_a, t_stack **stack_b, t_all *all);
 
 /* helpers */
 t_stack	*parse_arguments(int argc, char **argv, t_all *all);
@@ -67,4 +67,7 @@ int		is_sorted(t_stack *s);
 int		is_rev_sorted(t_stack *s);
 int		stack_has(t_stack **stack, int chunk_max);
 int		push_swap_atoi(const char *str);
+
+/* printf */
+void	print_stacks(t_stack *stack_a, t_stack *stack_b);
 #endif

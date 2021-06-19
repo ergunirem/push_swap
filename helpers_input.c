@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   input_check.c                                      :+:    :+:            */
+/*   helpers_input.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: icikrikc <icikrikc@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/22 16:33:08 by icikrikc      #+#    #+#                 */
-/*   Updated: 2021/06/01 13:14:26 by icikrikc      ########   odam.nl         */
+/*   Updated: 2021/06/17 09:01:59 by icikrikc      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,12 @@ int	push_swap_atoi(const char *str)
 	while (str[i] != '\0')
 	{
 		if (ft_isdigit(str[i]) == 0)
-			return (-1);
+			ft_exit_basic("");
 		res = res * 10 + str[i] - '0';
 		i++;
 	}
 	if (sign * res > 2147483647 || sign * res < -2147483648
 		|| (sign == -1 && res == 0))
-		return (-1);
+		ft_exit_basic("");
 	return (sign * res);
 }
